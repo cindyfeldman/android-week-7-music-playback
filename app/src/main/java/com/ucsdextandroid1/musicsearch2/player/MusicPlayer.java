@@ -10,6 +10,7 @@ import com.ucsdextandroid1.musicsearch2.data.SongItem;
 import java.io.IOException;
 
 /**
+ *
  * Created by rjaylward on 2019-05-17
  */
 public class MusicPlayer implements MediaPlayer.OnPreparedListener,
@@ -31,7 +32,7 @@ public class MusicPlayer implements MediaPlayer.OnPreparedListener,
     @Nullable private OnStateChangedListener stateChangedListener;
 
     @NonNull
-    private MediaPlayer createIfNecessary() {
+    private MediaPlayer createIfNecessary() {//create  music player
         if(mediaPlayer == null) {
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setOnPreparedListener(this);
@@ -48,7 +49,7 @@ public class MusicPlayer implements MediaPlayer.OnPreparedListener,
         return mediaPlayer;
     }
 
-    public void play(@NonNull SongItem songItem) {
+    public void play(@NonNull SongItem songItem) {//prepare media player to play
         if(currentSongItem == null || songItem.getTrackId() != currentSongItem.getTrackId()) {
             MediaPlayer mp = createIfNecessary();
             mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
